@@ -19,16 +19,26 @@ body{
 }
 .screen{
     display: flex;
-    justify-content: center;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
+    align-items: end;
+    padding-right: 10px;
     width: 710px;
     height: 230px;
     margin-bottom: 10px;
     background-color: white;
 }
+.screen .mainNumber{
+    margin-top: 0px;
+    margin-bottom: 20px;
+    font-size: 80px;
+}
+.screen .littleNumber{
+    margin-top: 20px;
+    font-size: 40px;
+    margin-bottom: 20px;
+}
 
-.CalculatorBase div{
+.CalculatorBase div .row{
     display: flex;
     justify-content: center;
     flex-direction: row;
