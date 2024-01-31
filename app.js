@@ -7,8 +7,10 @@ let zeroAtStart = true;
 let secondNumber = false;
 let posibleOperators = ["+", "-", "x", "/"]
 let error = false;
+let dotPressed = false;
 
 const numbersBTNS = document.querySelectorAll("#number");
+const dotBTN = document.querySelector("#dot");
 
 const mainText = document.querySelector("#mainText");
 
@@ -43,33 +45,58 @@ numbersBTNS.forEach(button => {
                 mainText.textContent += button.textContent;
         }
         }
-        
-        
-        
-
     });
-    
+});
+
+//dot
+dotBTN.addEventListener("click",() => {
+    if(dotPressed == false){
+        if(!error){
+            console.log("n1: " + n1 +"   n2: " + n2 );
+            console.log(".");
+            if(zeroAtStart){
+                mainText.textContent += ".";
+                zeroAtStart = false;
+            }
+            else{
+                if(secondNumber){
+                    console.log("textContent " + ".");
+                    n2 += ".";
+                }
+                console.log("n2 = " + n2);
+                mainText.textContent += ".";
+                }
+        }
+        dotPressed = true;
+    }
+
 });
 
 
 function calculeTotal(n1,n2){
+    n1 = Number(n1);
+    n2 = Number(n2);
+    console.log("TO OPERATE, N1: " + n1 + " N2: " + n2);    
     switch(actualOperator){
         case "+":
+            console.log("SUMANDO")
             console.log("actual operator = PLUS");
             total = +n1 + +n2;
+            console.log("total:" + total);
+
             break;
         case "-":
             console.log("actual operator = MINUS");
-            total = +n1 - +n2;
+            total = n1 - n2;
             break;
         case "*":
 
             console.log("actual operator = MULTIPLICATION");
-            total = +n1 * +n2;
+            total = n1 * n2;
             break;
         case "/":
             console.log("actual operator = DIVITION");
-            total = +n1 / +n2;
+            total = n1 / n2;
             console.log(total);
             break;
         default:
@@ -82,16 +109,23 @@ function calculeTotal(n1,n2){
         error = true;
         return total;
     }
-    return Math.round(total*1000)/100000;
+    if(total.toString().includes(".") && total.toString().length > 8){
+        return parseFloat(total.toFixed(8))
+    }
+    else{
+        return total;
+    }
+    
 }
 //clear
 clearBtn.addEventListener("click",() => {
+    dotPressed = false;
     error = false;
     console.log("clear");
     mainText.textContent = "0";
     littleText.textContent = "=";
     n1 = 0;
-    n2 = 0;
+    n2 = "";
     actualOperator = "";
     zeroAtStart = true;
     secondNumber = false;
@@ -114,6 +148,7 @@ plusBtn.addEventListener("click",() => {
             secondNumber = true;
             actualOperator = "+";
             mainText.textContent += "+";
+            dotPressed = false;
         }
         
     }
@@ -125,6 +160,7 @@ plusBtn.addEventListener("click",() => {
         mainText.textContent += "+";
         console.log("n1 value = " + n1);
         secondNumber = true;
+        dotPressed = false;
     }
     
 });
@@ -145,6 +181,7 @@ minusBtn.addEventListener("click",() => {
             secondNumber = true;
             actualOperator = "-";
             mainText.textContent += "-";
+            dotPressed = false;
         }
         
     }
@@ -156,6 +193,7 @@ minusBtn.addEventListener("click",() => {
         mainText.textContent += "-";
         console.log("n1 value = " + n1);
         secondNumber = true;
+        dotPressed = false;
     }
     
 });
@@ -176,6 +214,7 @@ multiplicationBtn.addEventListener("click",() => {
             secondNumber = true;
             actualOperator = "*";
             mainText.textContent += "x";
+            dotPressed = false;
         }
         
     }
@@ -187,6 +226,7 @@ multiplicationBtn.addEventListener("click",() => {
         mainText.textContent += "x";
         console.log("n1 value = " + n1);
         secondNumber = true;
+        dotPressed = false;
     }
     
 });
@@ -206,6 +246,7 @@ divitionBtn.addEventListener("click",() => {
             secondNumber = true;
             actualOperator = "/";
             mainText.textContent += "÷";
+            dotPressed = false;
         }
         
     }
@@ -217,6 +258,7 @@ divitionBtn.addEventListener("click",() => {
         mainText.textContent += "÷";
         console.log("n1 value = " + n1);
         secondNumber = true;
+        dotPressed = false;
     }
     
 });
@@ -226,12 +268,13 @@ equalBtn.addEventListener("click",() => {
     console.log("equal");
     littleText.textContent = "=";
     mainText.textContent = calculeTotal(n1,n2);
-
+    
     
     n1 = 0;
     n2 = "";
     secondNumber = false;
     zeroAtStart = true;
+    dotPressed = false;
         
     
 
