@@ -60,6 +60,12 @@ body{
     width: 175px;
     height: 110px;
 }
+.CalculatorBase .row1 .eraser{
+    margin: 2px;
+    width: 175px;
+    height: 110px;
+    font-size: 35px;
+}
 #clear{
     margin: 2px;
     width: 365px;

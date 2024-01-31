@@ -6,8 +6,10 @@ let actualOperator = "+";
 let zeroAtStart = true;
 let secondNumber = false;
 let posibleOperators = ["+", "-", "x", "/"]
+let posibleOperatorsForDelete = ["+", "-", "x", "÷"]
 let error = false;
 let dotPressed = false;
+
 
 const numbersBTNS = document.querySelectorAll("#number");
 const dotBTN = document.querySelector("#dot");
@@ -22,10 +24,11 @@ const plusBtn = document.querySelector("#plus");
 const multiplicationBtn = document.querySelector("#multiplication");
 const minusBtn = document.querySelector("#minus");
 const divitionBtn = document.querySelector("#divition");
-
+const deleteBtn = document.querySelector("#delete");
 const equalBtn = document.querySelector("#equal");
 
 console.log(numbersBTNS);
+
 //numbers
 numbersBTNS.forEach(button => {
     button.addEventListener("click",() => {
@@ -135,6 +138,28 @@ clearBtn.addEventListener("click",() => {
     zeroAtStart = true;
     secondNumber = false;
 
+});
+
+//delete
+deleteBtn.addEventListener("click",() =>{
+    console.log("simbolo al final: " +mainText.textContent[mainText.textContent.length - 1]);
+    if(!posibleOperatorsForDelete.includes(mainText.textContent[mainText.textContent.length - 1])){
+        if (secondNumber){
+            n2 = n2.slice(0, -1);
+            mainText.textContent = mainText.textContent.slice(0, -1);
+            if (!n2.includes(".")){
+                dotPressed = false;
+            }
+        }
+        else{
+            mainText.textContent = mainText.textContent.slice(0, -1);
+            if (!mainText.textContent.includes(".")){
+                dotPressed = false;
+            }
+        }
+        
+    }
+    
 });
 
 //plus
