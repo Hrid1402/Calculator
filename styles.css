@@ -1,7 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 *{
     font-family: 'Roboto', sans-serif;
-    font-size: 40px;
+    font-size: 60px;
+    border-radius: 30px;
+    border: none;
+}
+button:hover{
+    background-color: #dddddd;
+}
+button:active{
+    background-color: #ffffff;
 }
 body{
     display: flex;
@@ -10,7 +18,8 @@ body{
     align-items: center;
 }
 .CalculatorBase{
-    padding: 30px 20px;
+    margin-top: 20px;
+    padding: 30px 30px;
     justify-content: center;
     align-items: center;
     display: flex;
@@ -25,14 +34,49 @@ body{
     width: 730px;
     height: 230px;
     margin-bottom: 10px;
-    background-color: white;
+    background-color: #D9D9D9;
 }
+#clear, #delete{
+    background-color: #8DD5FF;
+}
+#clear:hover, #delete:hover{
+    background-color: #63c6ff;
+}
+#clear:active, #delete:active{
+    background-color: #aedffa;
+}
+
+
+#divition, #multiplication, #minus, #plus{
+    background-color: #FFDE59;
+}
+#divition:hover, #multiplication:hover, #minus:hover, #plus:hover{
+    background-color: #fdd121;
+}
+#divition:active, #multiplication:active, #minus:active, #plus:active{
+    background-color: #fae388;
+}
+
+
+#equal{
+    background-color: #FFBD59;
+}
+#equal:hover{
+    background-color: #fea31a;
+}
+#equal:active{
+    background-color: #febb55;
+}
+
+
 .screen .mainNumber{
     margin-top: 0px;
     margin-bottom: 20px;
+    margin-right: 20px;
     font-size: 80px;
 }
 .screen .littleNumber{
+    margin-right: 20px;
     margin-top: 20px;
     font-size: 40px;
     margin-bottom: 20px;
@@ -46,33 +90,34 @@ body{
 .CalculatorBase .row2 button,
 .CalculatorBase .row3 button,
 .CalculatorBase .row4 button{
-    margin: 2px;
+    margin: 5px 0px;
     width: 175px;
     height: 110px;
+    
 }
 .CalculatorBase .row5 .n{
-    margin: 2px;
+    margin: 5px 0px;
     width: 175px;
     height: 110px;
 }
 .CalculatorBase .row1 .n{
-    margin: 2px;
+    margin: 5px 0px;
     width: 175px;
     height: 110px;
 }
 .CalculatorBase .row1 .eraser{
-    margin: 2px;
+    margin: 5px 0px;
     width: 175px;
     height: 110px;
-    font-size: 35px;
+    font-size: 50px;
 }
 #clear{
-    margin: 2px;
+    margin: 5px 0px;
     width: 365px;
     height: 110px;
 }
 .CalculatorBase .row5 .zero{
-    margin: 2px;
+    margin: 5px 0px;
     width: 365px;
     height: 110px;
 }
