@@ -110,8 +110,13 @@ function calculeTotal(n1,n2){
         return total;
     }
     if(total.toString().includes(".") && total.toString().length > 8){
-        return parseFloat(total.toFixed(8))
+        return parseFloat(total.toFixed(8));
     }
+    else if(total.toString().length > 10){
+        console.log("yeah, the number is big");
+        return total.toExponential();
+    }
+    
     else{
         return total;
     }

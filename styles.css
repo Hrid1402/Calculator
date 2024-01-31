@@ -43,7 +43,6 @@ body{
     justify-content: center;
     flex-direction: row;
 }
-.CalculatorBase .row1 button, 
 .CalculatorBase .row2 button,
 .CalculatorBase .row3 button,
 .CalculatorBase .row4 button{
@@ -54,6 +53,16 @@ body{
 .CalculatorBase .row5 .n{
     margin: 2px;
     width: 175px;
+    height: 110px;
+}
+.CalculatorBase .row1 .n{
+    margin: 2px;
+    width: 175px;
+    height: 110px;
+}
+#clear{
+    margin: 2px;
+    width: 365px;
     height: 110px;
 }
 .CalculatorBase .row5 .zero{
