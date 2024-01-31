@@ -22,7 +22,7 @@ body{
     flex-direction: column;
     align-items: end;
     padding-right: 10px;
-    width: 710px;
+    width: 730px;
     height: 230px;
     margin-bottom: 10px;
     background-color: white;
@@ -58,6 +58,6 @@ body{
 }
 .CalculatorBase .row5 .zero{
     margin: 2px;
-    width: 355px;
+    width: 365px;
     height: 110px;
 }
